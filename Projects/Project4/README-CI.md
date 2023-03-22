@@ -19,7 +19,12 @@
 
     `docker run -d --name proj4-webserver1 -p 80:80 proj4-webserver`
 
-  - how to view the project running in the container (open a browser...go to IP and port...)
+  - how to view the project running in the container
+    
+    Searched `localhost`, `localhost:80`, `127.0.0.1`, or `127.0.0.1:80` in Chrome:
+    
+    <img width="1440" alt="Screen Shot 2023-03-16 at 2 51 19 AM" src="https://user-images.githubusercontent.com/77419369/225537643-f740fe36-ad2a-4fc5-9ad0-3a2dbd15db08.png">
+
   - Resources
 
     [httpd](https://hub.docker.com/_/httpd)  
