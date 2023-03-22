@@ -34,16 +34,20 @@
 
 - Process to create public repo in DockerHub
 
-  After and creating an account and logging into DockerHub, click the `Repositories` button at the top. Then, click the blue `Create repository` button toward the top right. Enter a Name and Description in the appropriate fields. Click `Create`.
+  After creating an account and logging into DockerHub, click the `Repositories` button at the top. Then, click the blue `Create repository` button toward the top right. Enter a Name and Description in the appropriate fields. The name I entered was `ceg3120-proj4`, and the description I entered was `Repository for Project 4 of CEG 3120`. Click `Create`.
   
 - How to authenticate with DockerHub via CLI using Dockerhub credentials
   - what credentials would you recommend providing?
 
-  Since access tokens provide greater security than a password due to the ability to limit what permissions they allow and the fact that these tokens can be revoked at any time, it would be ideal to use one as a DockerHub credential. To create one, click on your username toward the top right and select `Account Settings`. Click `Security` in the choices at the left. Click the blue `New Access Token` button. Enter a Access Token Description and choose the Access permissions. Click `Generate`. Copy the provided personal access token and save it somewhere secure.
+  Since access tokens provide greater security than a password due to the ability to limit what permissions they allow and the fact that these tokens can be revoked at any time, it would be ideal to use one as a DockerHub credential. To create one, click on your username toward the top right and select `Account Settings`. Click `Security` in the choices at the left. Click the blue `New Access Token` button. Enter an Access Token Description and choose the Access permissions. Click `Generate`. The Access Token Description I entered was `MacBook Pro` to identify the device for which the token was made, and the Access Permissions I chose were `Read, Write, Delete` as I needed `Read & Write` at the very least to be able to push my image to my repository and included `Delete` as well because I was not sure if I would mess up need to redo something. Copy the provided personal access token and save it somewhere secure. I pasted it in a file in my `~/.ssh` directory because that's generally where I keep my other secrets.
   
-  To authenticate with DockerHub via CLI using the token just generated, first open a terminal. Then, enter the command `docker login`. When prompted for a Username, enter your DockerHub account username. When prompted for a Password, paste your token.
+  To authenticate with DockerHub via CLI using the token just generated, first open a terminal. Then, enter the command `docker login`. When prompted for a Username, enter your DockerHub account username. I entered `l30n1das`. When prompted for a Password, paste your token. I got mine from my file in `~/.ssh` and pasted it in.
   
 - How to push container image to Dockerhub (without GitHub Actions)
+
+  Ran `docker tag proj4-webserver:latest l30n1das/ceg3120-proj4:1.0` to tag my image to my repository  
+  Ran `docker push l30n1das/ceg3120-proj4:1.0` to push the image to my repository
+  
 - Configuring GitHub Secrets
   - How to set a secret
   - What secret(s) are set for this project
