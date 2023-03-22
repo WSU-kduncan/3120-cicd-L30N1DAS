@@ -1,0 +1,13 @@
+name: my-first-workflow
+on:
+  push:
+    - 'main'
+  # workfolow-dispatch
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello World!"
+      - uses: actions/checkout@v2
+      - run: ls
+      - run: echo "Goodbye!"
