@@ -29,3 +29,30 @@
 
     [httpd](https://hub.docker.com/_/httpd)  
     [How to dockerize Apache httpd websites example](https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/How-to-dockerize-Apache-httpd-web-servers)
+    
+## Part 2 - GitHub Actions and DockerHub
+
+- Process to create public repo in DockerHub
+
+  After and creating an account and logging into DockerHub, click the `Repositories` button at the top. Then, click the blue `Create repository` button toward the top right. Enter a Name and Description in the appropriate fields. Click `Create`.
+  
+- How to authenticate with DockerHub via CLI using Dockerhub credentials
+  - what credentials would you recommend providing?
+
+  Since access tokens provide greater security than a password due to the ability to limit what permissions they allow and the fact that these tokens can be revoked at any time, it would be ideal to use one as a DockerHub credential. To create one, click on your username toward the top right and select `Account Settings`. Click `Security` in the choices at the left. Click the blue `New Access Token` button. Enter a Access Token Description and choose the Access permissions. Click `Generate`. Copy the provided personal access token and save it somewhere secure.
+  
+  To authenticate with DockerHub via CLI using the token just generated, first open a terminal. Then, enter the command `docker login`. When prompted for a Username, enter your DockerHub account username. When prompted for a Password, paste your token.
+  
+- How to push container image to Dockerhub (without GitHub Actions)
+- Configuring GitHub Secrets
+  - How to set a secret
+  - What secret(s) are set for this project
+    - Note: do not copy paste your secrets into your documentation
+- Behavior of GitHub workflow
+  - what does it do and when
+  - what variables in workflow are custom to your project
+    - think may need to be changed if someone else is going to use it or you reuse it
+
+### Resources
+
+- [GitHub Actions - Docker Docs](https://docs.docker.com/ci-cd/github-actions/)
