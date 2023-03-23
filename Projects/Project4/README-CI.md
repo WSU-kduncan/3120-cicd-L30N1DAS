@@ -52,6 +52,11 @@
   - How to set a secret
   - What secret(s) are set for this project
     - Note: do not copy paste your secrets into your documentation
+
+  To set a secret in GitHub at the repository level, click `Settings` at the top of the page while viewing the repository. On the left side, scroll down to the `Security` section and click `Secrets and variables` followed by `Actions`. Click `New repository secret` while on the `Secrets` tab. Enter a Name and paste the Secret into the appropriate fields. Click `Add secret`.
+  
+  In my case, I set two secrets for this project: one named `DOCKER_USERNAME` that contains my DockerHub account username and the other named `DOCKER_PASSWORD` that contains my `MacBook Pro` Docker token.
+  
 - Behavior of GitHub workflow
   - what does it do and when
   - what variables in workflow are custom to your project
