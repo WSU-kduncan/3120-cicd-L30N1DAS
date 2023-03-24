@@ -13,10 +13,10 @@ jobs:
       #- docker login -u L30N1DAS -pass mysupersecret
       - run: echo "Goodbye!"
       - shell: bash
-      env:
-        SUPER_SECRET: ${{ secrets.DOCKERHUB_USERNAME }}
-      run: |
-        echo "$SUPER_SECRET"
+        env:
+          SUPER_SECRET: ${{ secrets.DOCKERHUB_USERNAME }}
+        run: |
+          echo "$SUPER_SECRET"
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
