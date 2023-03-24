@@ -10,4 +10,11 @@ jobs:
       - run: echo "Hello World!"
       - uses: actions/checkout@v2
       - run: ls
+      #- docker login -u L30N1DAS -pass mysupersecret
       - run: echo "Goodbye!"
+      - shell: bash
+      env:
+        SUPER_SECRET: ${{ secrets.DOCKERHUB_USERNAME }}
+      run: |
+        echo "$SUPER_SECRET"
+
