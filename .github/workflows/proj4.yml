@@ -1,8 +1,12 @@
 name: Project 4 Publish Docker Image
 
+#on:
+#  release:
+#    types: [published]
+
 on:
-  release:
-    types: [published]
+  push:
+    branchs: [main]
 
 jobs:
   push_to_registry:
