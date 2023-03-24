@@ -62,6 +62,12 @@
   - what variables in workflow are custom to your project
     - think may need to be changed if someone else is going to use it or you reuse it
 
-### Resources
+  My `proj4` workflow builds an image from the Dockerfile in this directory and pushes that image to DockerHub. It triggers whenever a push is made to the `main` branch of this GitHub repository. The custom variables in my workflow that may need to be changed on a case by case basis besides `name` are the following: `username`, `password`, `images`, `context`, and `tags`.
 
-- [GitHub Actions - Docker Docs](https://docs.docker.com/ci-cd/github-actions/)
+- Resources
+
+  [Encrypted secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets)  
+  [GitHub - publishing images to DockerHub](https://docs.github.com/en/actions/guides/publishing-docker-images#publishing-images-to-docker-hub)  
+  [Solution for Docker issue failed to solve: rpc error: code = unknown desc](https://ayeshalshukri.co.uk/category/guides/docker-error-failed-to-solve-with-frontend-dockerfile/)  
+  [Github Actions: unable to prepare context](https://stackoverflow.com/questions/60936555/github-actions-unable-to-prepare-context-unable-to-evaluate-symlinks-in-docker)  
+  [GitHub Actions - Docker Docs](https://docs.docker.com/ci-cd/github-actions/)
