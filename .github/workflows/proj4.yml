@@ -3,8 +3,8 @@ name: Project 4 Publish Docker Image
 on:
   push:
     branchs: [main]
-    workflow-dispatch
-    tags
+    workflow-dispatch:
+    tags:
 
 jobs:
   push_to_registry:
