@@ -79,3 +79,5 @@ In the diagram below, some of the edges are colored to reflect their priority. T
 The diagram below is also specific to my project and workflow. For example, the `Local System triggers GitHub Action` relationship reflects the idea that a push must made to the repository for the workflow to be triggered. Other events can do so as well, however. Because I did not use them, I did not include them in my diagram to maintain simplicity.
 
 <img width="592" alt="Screen Shot 2023-03-29 at 12 09 45 PM" src="https://user-images.githubusercontent.com/77419369/228600628-e182fef6-0713-478c-8aa3-5a4c463cb818.png">
+
+<img width="592" alt="Screen Shot 2023-03-29 at 12 29 12 PM" src="https://user-images.githubusercontent.com/77419369/228606023-7c6b4840-a977-4b11-bc2d-2620a4200c9c.png">
