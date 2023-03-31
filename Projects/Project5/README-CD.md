@@ -15,6 +15,9 @@ pull the image and build the container using it manually every single time the i
 user time.
 
 - How to generate a `tag` in `git` / GitHub
+
+  First, add your changes using `git add <file_names>`. Then, commit the changes using `git commit`. Then tag the commit using `git tag -a v#.#.#`. Finally to push the tagged commit, use `git push origin v#.#.#`.
+  
 - Behavior of GitHub workflow
   - what does it do and when
 
