@@ -21,6 +21,12 @@ user time.
 - Behavior of GitHub workflow
   - what does it do and when
 
+  The GitHub workflow is triggered whenever a push is made to the `main` branch or a tagged commit is pushed. It builds a new Docker image from the Dockerfile in this repository and pushes it to DockerHub. The image in DockerHub will be tagged with `latest`, the full version number (major, minor, and patch), and a shortened version number (major and minor).
+  
+- Link to Docker Hub repository (as additional proof)
+
+  DockerHub Repo: [l30n1das/ceg3120-proj4](https://hub.docker.com/repository/docker/l30n1das/ceg3120-proj4/general)
+
 ### Resources
 
 - [GitHub - docker/metadata-action](https://github.com/docker/metadata-action)
