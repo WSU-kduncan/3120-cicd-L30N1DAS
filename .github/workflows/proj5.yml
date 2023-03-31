@@ -3,6 +3,9 @@ name: Project 5 Publish Docker Image
 on:
   push:
     branchs: [main]
+    workflow-dispatch:
+    tags:
+      - "v*.*.*"
 
 jobs:
   push_to_registry:
