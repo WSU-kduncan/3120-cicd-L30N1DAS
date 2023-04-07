@@ -66,12 +66,25 @@ user time.
   - Justification & description of what it does
   - Where it should be on server (if someone were to use your setup)
 
-  The container restart script stops the currently running container, removes it, pulls the latest image from the Docker repository, and runs a new container with that image. Because this process has to be completed every single time an update is made to the image, it can become rather time consuming and tedious. Scripting it, however, increases efficiency as the number of commands to be run manually is significantly reduced. Furthermore, using a script collects all the commands that need to be run in one location, simplifying completely automating the process via webhooks. Ideally, `root` should be the owner of the script; and it should be placed within `/root` as the script should only be executable by admins (who would already have access to the `root` user and the `/root` directory).
+  The container restart script stops the currently running container, removes it, pulls the latest image from the Docker repository, and runs a new container with that image. Because this process has to be completed every single time an update is made to the image, it can become rather time consuming and tedious. Scripting it, however, increases efficiency as the number of commands to be run manually is significantly reduced. Furthermore, using a script collects all the commands that need to be run in one location, simplifying completely automating the process via webhooks. Ideally, `root` should be the owner of the script; and it should be placed somewhere accessible only by `root` as the script should only be executable by admins (who would already have access to the `root` user). I personally put it in `/etc/` as that is where other configuration files can be found
   
 - Setting up a `webhook` on the server
   - How to install [adnanh's `webhook`](https://github.com/adnanh/webhook) to server
   - How to start the `webhook`
     - since our instance's reboot, we need to handle this
+
+  Ran `sudo apt-get install webhook`
+  
+  Created `/etc/systemd/system/webhook.service`. It is a service (i.e. it is run whenever the system starts up) that automatically starts the webhook.
+  
+  Created `/etc/webhook/hooks.json`. It contains details about the webhook as well as the path of the script to be executed when it is triggered.
+  
+  Previously created `/etc/scripts/restart.sh`. It is the script ran when the webhook is triggered. It recreates a docker container with the pulled image.
+  
+  `journalctl -xfe _SYSTEMD_UNIT=webhook.service` can be run to view the logs.
+  
+  These files can be found with the `deployment` directory.
+  
 - `webhook` task definition file
   - Description of what it does
   - Where it should be on server (if someone were to use your setup)
@@ -80,7 +93,10 @@ user time.
 
 ### Resources
 
+
 - [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+- [adnanh's `webhook`](https://github.com/adnanh/webhook)
+- [CI/CD with Webhook: Webhook service](https://hub.analythium.io/docs/shinyproxy-webhook/#:~:text=system%20prune%20%2Df-,Webhook%20service,-%23)
 - [Using GitHub actions and `webhook`s](https://levelup.gitconnected.com/automated-deployment-using-docker-github-actions-and-webhooks-54018fc12e32)
 - [Using DockerHub and `webhook`s](https://blog.devgenius.io/build-your-first-ci-cd-pipeline-using-docker-github-actions-and-webhooks-while-creating-your-own-da783110e151)
   - Note: this has been the method focused on in lecture
