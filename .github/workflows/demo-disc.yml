@@ -2,7 +2,7 @@ name: Discord Notif Retry
 
 on:
   push:
-    branchs: [main]
+    branches: [main]
     workflow-dispatch:
     tags:
       - "v*.*.*"
