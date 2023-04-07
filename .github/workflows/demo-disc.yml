@@ -1,0 +1,17 @@
+name: Project 5 Publish Docker Image
+
+on:
+  push:
+    branchs: [main]
+    workflow-dispatch:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  discord-hook:
+    #needs: hello-world
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send message to webhook on Discord
+        uses: johnnyhuy/actions-discord-git-webhook@main
+        with: webhook_url: ${{ secrets.DISCORD_URL }}
