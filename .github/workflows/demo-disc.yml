@@ -1,4 +1,4 @@
-name: Project 5 Publish Docker Image
+name: Discord Notif
 
 on:
   push:
