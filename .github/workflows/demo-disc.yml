@@ -1,4 +1,4 @@
-name: Discord Notif
+name: Discord Notif Retry
 
 on:
   push:
