@@ -85,6 +85,9 @@ user time.
   These files can be found within the `deployment` directory within this repository.
   
 - How to configure GitHub OR DockerHub to message the listener 
+
+  In this repository, I went to `Settings` -> `Webhooks` -> `Add webhook`. In the `Payload URL` blank, I pasted in my webhook's HTTP endpoint. For events that can trigger the webhook, I chose to select individual events, specifically `Workflow runs`.
+  
 - RECORD your whole workflow process - from `commit` and `push` to your server getting a fresh image
 
 ### Resources
