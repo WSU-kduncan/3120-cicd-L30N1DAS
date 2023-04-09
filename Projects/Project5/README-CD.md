@@ -88,6 +88,8 @@ user time.
 
   In this repository, I went to `Settings` -> `Webhooks` -> `Add webhook`. In the `Payload URL` blank, I pasted in my webhook's HTTP endpoint. For events that can trigger the webhook, I chose to select individual events, specifically `Workflow runs`.
   
+  EDIT: I edited the `Payload URL` field to be the following after editing my hook file to have a token as a `trigger-rule`: `http://44.198.154.95:9000/hooks/restart-webhook?TOKEN=dckr_pat_j-da7BM7picG5Jk7eIK_9g1AA9w`. This is the endpoint that must be provided now to trigger the webhook. Still trying to figure out how the `Secret` field works.
+  
 - RECORD your whole workflow process - from `commit` and `push` to your server getting a fresh image
 
 ### Resources
