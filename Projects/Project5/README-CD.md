@@ -63,28 +63,27 @@ user time.
   - Justification & description of what it does
   - Where it should be on server (if someone were to use your setup)
 
-  The container restart script stops the currently running container, removes it, pulls the latest image from the Docker repository, and runs a new container with that image. Because this process has to be completed every single time an update is made to the image, it can become rather time consuming and tedious. Scripting it, however, increases efficiency as the number of commands to be run manually is significantly reduced. Furthermore, using a script collects all the commands that need to be run in one location, simplifying completely automating the process via webhooks. Ideally, `root` should be the owner of the script; and it should be placed somewhere accessible only by `root` as the script should only be executable by admins (who would already have access to the `root` user). I personally put it in `/etc/scripts/` as that is where other configuration files can be found.
+  The container restart script stops the currently running container, removes it, pulls the latest image from the Docker repository, and runs a new container with that image. Because this process has to be completed every single time an update is made to the image, it can become rather time consuming and tedious. Scripting it, however, increases efficiency as the number of commands to be run manually is significantly reduced. Furthermore, using a script collects all the commands that need to be run in one location, simplifying completely automating the process via webhooks. Ideally, `root` should be the owner of the script and other configuration files discussed in the next section; and it, along with the other files, should be placed somewhere accessible only by `root` as these files should only be executable and configurable by admins (who would already have access to the `root` user). I personally put my restart script in `/etc/scripts/` as `/etc` is where other configuration files can be found and putting it in a `scripts` directory helps to set it apart from other configuration files and distinguish it as a script.
   
-- Setting up a `webhook` on the server
+- Setting up a `webhook` on the server and `webhook` task definition file
   - How to install [adnanh's `webhook`](https://github.com/adnanh/webhook) to server
   - How to start the `webhook`
     - since our instance's reboot, we need to handle this
+  - Description of what the `webhook` task definition file does
+  - Where the `webhook` task definition file should be on server (if someone were to use your setup)
 
-  Ran `sudo apt-get install webhook`
+  Installed `webhook` with the command `sudo apt-get install webhook`
   
-  Created `/etc/systemd/system/webhook.service`. It is a service (i.e. it is run whenever the system starts up) that automatically starts the webhook.
+  Created `/etc/systemd/system/webhook.service`. It is a service (i.e. it is run whenever the system starts up) that automatically starts the webhook. The `webhook` could also be started manually by running the command `/usr/bin/webhook -hooks /etc/webhook/hooks.json -verbose`. This location was chosen for the file because that is where other services are present.
   
-  Created `/etc/webhook/hooks.json`. It contains details about the webhook as well as the path of the script to be executed when it is triggered.
+  Created `/etc/webhook/hooks.json`. It is the webhook configuration file. As such, it contains details about the webhook and executes the container restart script when it is triggered. It can be triggered with the following HTTP endpoint `http://44.198.154.95:9000/hooks/restart-webhook`. This location was chosen for the file because `/etc` contains other configuration files and the `webhook` directory helps to distinguish it from those other files as a webhook.
   
-  Previously created `/etc/scripts/restart.sh`. It is the script ran when the webhook is triggered. It recreates a docker container with the pulled image.
+  Previously created `/etc/scripts/restart.sh`. It is the script ran when the webhook is triggered. It pulls the latest version of an image from DockerHub and recreates a container (i.e., it first stops and removes an existing container and then builds and runs another container) using that image. This location was chosen for the file because `/etc` contains other configuration files and the `scripts` directory helps to distinguish it from those other files as a script.
   
-  `journalctl -xfe _SYSTEMD_UNIT=webhook.service` can be run to view the logs.
+  `journalctl -xfe _SYSTEMD_UNIT=webhook.service` can be run to view the logs while the webhook service is running.
   
-  These files can be found with the `deployment` directory.
+  These files can be found within the `deployment` directory within this repository.
   
-- `webhook` task definition file
-  - Description of what it does
-  - Where it should be on server (if someone were to use your setup)
 - How to configure GitHub OR DockerHub to message the listener 
 - RECORD your whole workflow process - from `commit` and `push` to your server getting a fresh image
 
