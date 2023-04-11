@@ -92,6 +92,8 @@ user time.
   
 - RECORD your whole workflow process - from `commit` and `push` to your server getting a fresh image
 
+  [Recording](https://github.com/WSU-kduncan/3120-cicd-L30N1DAS/blob/main/Projects/Project5/demo-recording.mp4)
+
 ### Resources
 
 - [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
