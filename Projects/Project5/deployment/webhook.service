@@ -1,0 +1,8 @@
+[Unit]
+Description="Service for the restart-webhook"
+
+[Service]
+ExecStart=/usr/bin/webhook -hooks /etc/webhook/hooks.json -hotreload -verbose
+
+[Install]
+WantedBy=multi-user.target

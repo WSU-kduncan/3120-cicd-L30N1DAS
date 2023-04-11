@@ -1,0 +1,20 @@
+[
+  {
+    "id": "restart-webhook",
+    "execute-command": "/etc/scripts/restart.sh",
+    "command-working-directory": "/etc/scripts",
+    "trigger-rule":
+    {
+      "match":
+      {
+        "type": "value",
+        "value": "dckr_pat_j-da7BM7picG5Jk7eIK_9g1AA9w",
+        "parameter":
+        {
+          "source": "url",
+          "name": "TOKEN"
+        }
+      }
+    }
+  }
+]
