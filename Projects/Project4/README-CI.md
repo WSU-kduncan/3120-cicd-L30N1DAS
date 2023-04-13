@@ -74,9 +74,9 @@
 
 ## Part 3 - Diagramming
 
-In the diagram below, some of the edges are colored to reflect their priority. That is, if a node has multiple edges emanaging from it and one path must be completed before another, both edges will be colored. Red is used to indicate highest priority (i.e., paths that must be completed first), yellow is used to indicate medium priority (i.e., paths that must be completed second), and green is used to indicate lowest priority (i.e., paths that must be completed last). Black edges indicate paths that are independent of any other paths and can be traversed at any time.
+In the diagram below, some of the edges are colored to reflect their priority. That is, if a node has multiple edges emanating from it and one path must be completed before another, both edges will be colored. Red is used to indicate highest priority (i.e., paths that must be completed first), yellow is used to indicate medium priority (i.e., paths that must be completed second), and green is used to indicate lowest priority (i.e., paths that must be completed last). Black edges indicate paths that are independent of any other paths and can be traversed at any time.
 
-The diagram below is also specific to my project and workflow. For example, it currently reflects the idea that a push must be made to the repository for the workflow to be triggered. Other events can do so as well, however. Because I did not use them, I did not include them in my diagram to maintain simplicity.
+The diagram below is also specific to my project and workflow. For example, it currently reflects the idea that a push must be made to the GitHub repository for the workflow to be triggered. Other events can do so as well, however. Because I did not use them, I did not include them in my diagram to maintain simplicity.
 
 <img width="592" alt="Screen Shot 2023-03-29 at 12 29 12 PM" src="https://user-images.githubusercontent.com/77419369/228606023-7c6b4840-a977-4b11-bc2d-2620a4200c9c.png">
 
