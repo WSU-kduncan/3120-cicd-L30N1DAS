@@ -102,3 +102,17 @@ user time.
 - [Using GitHub actions and `webhook`s](https://levelup.gitconnected.com/automated-deployment-using-docker-github-actions-and-webhooks-54018fc12e32)
 - [Using DockerHub and `webhook`s](https://blog.devgenius.io/build-your-first-ci-cd-pipeline-using-docker-github-actions-and-webhooks-while-creating-your-own-da783110e151)
   - Note: this has been the method focused on in lecture
+
+## Part 3 - Diagramming
+
+In the diagram below, some of the edges are colored to reflect their priority. That is, if a node has multiple edges emanating from it and one path must be completed before another, both edges will be colored. Red is used to indicate highest priority (i.e., paths that must be completed first), yellow is used to indicate medium priority (i.e., paths that must be completed second), and green is used to indicate lowest priority (i.e., paths that must be completed last). Black edges indicate paths that are independent of any other paths and can be traversed at any time.
+
+The diagram below is also specific to my project. For example, it currently reflects the ideas that a push must be made to the GitHub repository for the workflow to be triggered and that a workflow must finish running for a payload to be sent to the provided endpoint. Other events can do so as well, however. Because I did not use them, I did not include them in my diagram to maintain simplicity.
+
+Finally, although the focus of this project was continuous deployment, I have taken my continuous integration diagram from Project 4 and expanded it to include continuous deployment aspects to tie the two projects together, as well as to more aptly demonstrate the dependencies of certain events (e.g., the payload can only be sent *after* the workflow finishes). If a general division between the two processes is desired however, the diagram can be viewed in a manner such that the upper part of it represents the CI aspects while the lower part, specifically the logical progression guided by the directed edges starting at the `GitHub Repo` `sends` `Payload` relationship, represents the CD aspects.
+
+<img width="968" alt="Screen Shot 2023-04-12 at 9 30 54 PM" src="https://user-images.githubusercontent.com/77419369/231622516-5fd37b32-755e-40a6-9c1f-cc689fb05d15.png">
+
+### Resources
+
+- [yEd](https://www.yworks.com/products/yed)
